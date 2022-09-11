@@ -49,4 +49,6 @@ public class CategoriaController {
     public ResponseEntity<List<CategoriaModel>> exibirTodasAsCategorias(){
         return ResponseEntity.ok(categoriaService.getTodasAsCategorias());
     }
+
+
 }
