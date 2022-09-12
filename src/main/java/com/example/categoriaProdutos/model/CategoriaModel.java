@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "categorias")
-//@Validated
+@Validated
 public class CategoriaModel {
 
     @Id
@@ -24,11 +24,11 @@ public class CategoriaModel {
     private Long id;
 
     @Column(name = "nome_categoria", length = 70, nullable = false)
-   // @NotBlank(message = "Erro, informe a categoria")
+    @NotBlank(message = "Erro, informe a categoria")
     private String nomeCategoria;
 
     @Column(name = "descricao_categoria", length = 100, nullable = false)
-  //  @NotBlank(message = "Erro, informe a descrição da categoria")
+    @NotBlank(message = "Erro, informe a descrição da categoria")
     private String descricaoCategoria;
 
     @JsonIgnore

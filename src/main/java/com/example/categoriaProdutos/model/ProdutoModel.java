@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 
@@ -14,7 +15,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Entity
 @Table(name = "produtos")
-//@Validated
+@Validated
 public class ProdutoModel {
 
     @Id
@@ -22,19 +23,19 @@ public class ProdutoModel {
     private Long id;
 
     @Column(name = "nome_produto", length = 100, nullable = false)
-   // @NotBlank(message = "Erro, nome do produto não informado")
+    @NotBlank(message = "Erro, o nome do produto não foi informado")
     private String nomeProduto;
 
     @Column(name = "cor_produto", length = 35, nullable = false)
-    //@NotBlank(message = "Erro, cor do produto não informada")
+    @NotBlank(message = "Erro, cor do produto não informada")
     private String corProduto;
 
     @Column(name = "marca_produto", length = 50, nullable = false)
-   // @NotBlank(message = "Erro, marca do produto não informada")
+    @NotBlank(message = "Erro, informe a marca do produto")
     private String marcaProduto;
 
-    @Column(name = "valor_produto", length = 200, nullable = false)
-    //@NotBlank(message = "Erro, informe o valor do produto")
+    @Column(name = "valor_produto", length = 225, nullable = false)
+    @Min(value = 1, message = "Erro, o valor do produto tem que ser superior a zero")
     private BigDecimal valorProduto;
 
     @ManyToOne
